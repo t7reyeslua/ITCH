@@ -1,0 +1,1158 @@
+.nopadding {
+    padding: 0 !important;
+    margin: 0 !important;
+}
+.episodes_box td {
+    padding: 0;
+    text-align: left;
+    /*min-width: 200px;*/
+}
+.episodes_box thead tr {
+    display: block;
+    position: relative;
+}
+.episodes_box tbody {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: 255px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.subtitle_box td {
+    padding: 0;
+    text-align: left;
+    /*min-width: 200px;*/
+}
+.subtitle_box thead tr {
+    display: block;
+    position: relative;
+}
+.subtitle_box tbody {
+    display: block;
+    overflow: auto;
+    width: 90%;
+    height: 255px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+.album_tracks_box td {
+    padding: 0;
+    text-align: left;
+    /*min-width: 200px;*/
+}
+
+.album_tracks_box_search td {
+    padding: 0;
+    text-align: left;
+    /*min-width: 200px;*/
+}
+
+.album_tracks_box thead tr {
+    display: block;
+    position: relative;
+}
+
+
+.album_tracks_box_search thead tr {
+    display: block;
+    position: relative;
+}
+
+.album_tracks_box tbody {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: 225px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+.album_tracks_box_search tbody {
+    display: block;
+    overflow: auto;
+    width: 100%;
+    height: 425px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+.show_pointer {
+    cursor: pointer;
+}
+.sortable {
+    cursor: pointer;
+}
+.sortable:after {
+    content: url(data:image/gif;base64,R0lGODlhCwALAJEAAAAAAP///xUVFf///yH5BAEAAAMALAAAAAALAAsAAAIUnC2nKLnT4or00PvyrQwrPzUZshQAOw==);
+    padding-left: 1em;
+}
+.st-sort-ascent:after {
+    content: '\25B2';
+}
+.st-sort-descent:after {
+    content: '\25BC';
+}
+.st-selected{
+    border-left:4px solid #009688;
+}
+
+#cds-button, #cds-buttons {
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+}
+.movie-selected-img {
+    width: 250px;
+    height: 375px;
+}
+.album-selected-img {
+    width: 250px;
+    height: 250px;
+}
+.artist-selected-img {
+    width: 375px;
+    height: 375px;
+}
+.movie-selected-bkg {
+    width: 267px;
+    height: 150px;
+}
+.episode-selected-bkg {
+    width: 350px;
+    height: 197px;
+}
+.show-actor-img {
+    width: 150px;
+    height: 225px;
+}
+.season-selected-poster {
+    width: 102px;
+    height: 150px;
+}
+
+.background-selected-img {
+    width: 390px;
+    height:250px;
+}
+
+.movie-plot {
+    height: 9em;
+    width: 456px;
+    border-style: none !important;
+    border-color: Transparent !important;
+    overflow: auto !important;
+    outline: none !important;
+}
+/*.feature-box h4:after {*/
+/*font-family: FontAwesome;*/
+/*content: '\f111';*/
+/*font-size: 10px;*/
+/*vertical-align: middle;*/
+/*padding-left: 4px;*/
+/*}*/
+.control-panel-link .feature-box .unknown:after,
+.control-panel-link .feature-box .unavailable:after,
+.control-panel-link .feature-box .available-partial:after,
+.control-panel-link .feature-box .available:after{
+    font-family: FontAwesome;
+    content: '\f111';
+    font-size: 20px;
+    vertical-align: middle;
+    padding-left: 4px;
+}
+.control-panel-link .feature-box .unavailable:after {
+    content: '\f056';
+    color: #DD5136;
+}
+
+.control-panel-link .feature-box .available:after {
+    content: '\f058';
+    color: #009688;
+}
+.control-panel-link .feature-box .available-partial:after {
+    content: '\f06a';
+    color: #ff9f2e;
+}
+.control-panel-link .feature-box .unknown:after {
+    content: '\f059';
+}
+.control-panel-link .feature-box .unknown,
+.control-panel-link .feature-box .available,
+.control-panel-link .feature-box .available-partial,
+.control-panel-link .feature-box .unavailable{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    padding: 34px;
+    padding-top: 10px;
+}
+.control-panel-link .feature-box a.btn-fab{
+    position: absolute;
+    right: 0px;
+    bottom: 0px;
+    padding: 34px;
+    padding-top: 10px;
+}
+
+.ngdialog-theme-default {
+    z-index: 1040;
+}
+
+/* Desktop */
+@media
+only screen and (min-width: 1201px)
+{
+    .ngdialog.ngdialog-theme-default.custom-width .ngdialog-content {
+        width: 1200px;
+        height: 700px;
+    }
+    .ngdialog.ngdialog-theme-default.custom-episode-width .ngdialog-content {
+        width: 1200px;
+        height: 550px;
+    }
+    .ngdialog.ngdialog-theme-default.custom-width-only .ngdialog-content {
+        width: 1200px;
+        height: auto;
+    }
+
+    .ngdialog.ngdialog-theme-default.custom-pictures-width .ngdialog-content {
+        width: 800px;
+        height: auto;
+    }
+    .ngdialog.ngdialog-theme-default.custom-tag-width .ngdialog-content {
+        width: 800px;
+        height: 250px;
+    }
+    .ngdialog.ngdialog-theme-default.custom-width-region .ngdialog-content {
+        width: 600px;
+        height: 300px;
+    }
+    .ngdialog.ngdialog-theme-default.custom-width-customstream .ngdialog-content {
+        width: 600px;
+        height: 350px;
+    }
+
+    .ngdialog.ngdialog-theme-default.custom-permission-width .ngdialog-content {
+        width: 900px;
+        height: 300px;
+    }
+
+    .ngdialog.ngdialog-theme-default.custom-groups-width .ngdialog-content {
+        width: 900px;
+        height: 390px;
+    }
+
+    .ngdialog.ngdialog-theme-default.custom-users-width .ngdialog-content {
+        width: 900px;
+        height: 430px;
+    }
+
+}
+@media /* iPhone 5*/
+only screen and (max-width: 335px) and (min-width: 320px)
+{
+    #cds-button {
+        position: relative;
+        padding-left:  calc(60% - (50% / 2));
+    }
+    #cds-buttons {
+        position: relative;
+        padding-left:  calc(37% - (50% / 2));
+    }
+    .ngdialog.ngdialog-theme-default.custom-width .ngdialog-content,
+    .ngdialog.ngdialog-theme-default.custom-width-only .ngdialog-content{
+        width: 95%;
+        height: auto;
+    }
+    .movie-selected-img {
+        width: 170px;
+        height: 250px;
+    }
+    .album-selected-img {
+        width: 250px;
+        height: 250px;
+    }
+    .artist-selected-img {
+        width: 250px;
+        height: 250px;
+    }
+    .movie-selected-bkg {
+        width: 242px;
+        height: 136px;
+    }
+    .episode-selected-bkg {
+        width: 242px;
+        height: 136px;
+    }
+    .editable-input.editable-has-buttons {
+        width: 95%;
+    }
+    .editable-wrap {
+        display: inline-block;
+        white-space: normal;
+        margin: 0;
+    }
+    .show-actor-img {
+        width: 75px;
+        height: 112px;
+    }
+    .show-actor-name {
+        display: inline-block; /* so height and width actually take affect */
+        max-width: 80%;
+        height: 1em; /* so overflow hidden works and keeps text on one row */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .movie-plot {
+        height: 9em;
+        width: 242px;
+        border-style: none !important;
+        border-color: Transparent !important;
+        overflow: auto !important;
+        outline: none !important;
+    }
+}
+
+@media /* iPhone 6 */
+only screen and (max-width: 500px) and (min-width: 375px)
+{
+    #cds-button {
+        position: relative;
+        padding-left:  calc(65% - (50% / 2));
+    }
+    #cds-buttons {
+        position: relative;
+        padding-left:  calc(45% - (50% / 2));
+    }
+    .ngdialog.ngdialog-theme-default.custom-width .ngdialog-content,
+    .ngdialog.ngdialog-theme-default.custom-width-only .ngdialog-content{
+        width: 95%;
+        height: auto;
+    }
+    .movie-selected-img {
+        width: 170px;
+        height: 250px;
+    }
+    .album-selected-img {
+        width: 250px;
+        height: 250px;
+    }
+    .artist-selected-img {
+        width: 250px;
+        height: 250px;
+    }
+    .movie-selected-bkg {
+        width: 294px;
+        height: 165px;
+    }
+    .editable-input.editable-has-buttons {
+        width: 95%;
+    }
+    .editable-wrap {
+        display: inline-block;
+        white-space: normal;
+        margin: 0;
+    }
+    .show-actor-img {
+        width: 75px;
+        height: 112px;
+    }
+    .show-actor-name {
+        display: inline-block; /* so height and width actually take affect */
+        max-width: 80%;
+        height: 1em; /* so overflow hidden works and keeps text on one row */
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+    .movie-plot {
+        height: 9em;
+        width: 294px;
+        border-style: none !important;
+        border-color: Transparent !important;
+        overflow: auto !important;
+        outline: none !important;
+    }
+}
+
+/* iPad */
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : portrait)
+{
+    #cds-button {
+        position: relative;
+        padding-left:  76%;
+    }
+    #cds-buttons {
+        position: relative;
+        padding-left:  calc(55% - (50% / 2));
+    }
+    .ngdialog.ngdialog-theme-default.custom-width .ngdialog-content,
+    .ngdialog.ngdialog-theme-default.custom-width-only .ngdialog-content{
+        width: 75%;
+        height: auto;
+    }
+
+    .editable-input.editable-has-buttons {
+        width: 95%;
+    }
+    .editable-wrap {
+        display: inline-block;
+        white-space: normal;
+        margin: 0;
+    }
+    .show-actor-img {
+        width: 120px;
+        height: 180px;
+    }
+    .movie-plot {
+        height: 9em;
+        width: 400px;
+        border-style: none !important;
+        border-color: Transparent !important;
+        overflow: auto !important;
+        outline: none !important;
+    }
+}
+
+@media only screen
+and (min-device-width : 768px)
+and (max-device-width : 1024px)
+and (orientation : landscape)
+{
+    .ngdialog.ngdialog-theme-default.custom-width .ngdialog-content {
+        width: 95%;
+        height: 600px;
+    }
+    .ngdialog.ngdialog-theme-default.custom-width-only .ngdialog-content {
+        width: 95%;
+        height: auto;
+    }
+    .ngdialog .container-fluid .row div {
+        padding-left: 0;
+    }
+    .editable-input.editable-has-buttons {
+        width: 95%;
+    }
+    .editable-wrap {
+        display: inline-block;
+        white-space: normal;
+        margin: 0;
+    }
+    .show-actor-img {
+        width: 135px;
+        height: 202px;
+    }
+    .movie-selected-img {
+        width: 290px;
+        height: 426px;
+    }
+    .album-selected-img {
+        width: 426px;
+        height: 426px ;
+    }
+    .artist-selected-img {
+        width: 426px;
+        height: 426px;
+    }
+    .movie-selected-bkg {
+        width: 227px;
+        height: 127px;
+    }
+
+}
+
+.modal_screen{
+    position: relative;
+}
+.modal_innerdiv {
+    position: absolute;
+    bottom: 15px;
+    left: 20px;
+}
+.editable-click {
+    color: black;
+    border-bottom: dashed 0px;
+}
+.editable-click:hover {
+    color: #83c6c3;
+    /*border-bottom: dotted 2px #83c6c3;*/
+    /*border-bottom-color: #83c6c3;*/
+}
+form .progress {
+    line-height: 15px;
+}
+.progress {
+    display: inline-block;
+    width: 100px;
+    border: 3px groove #CCC;
+}
+
+.progress div {
+    font-size: smaller;
+    background: orange;
+    width: 0;
+}
+.navbar {
+    background-color: #83c6c3;
+    /*background-color: #009688;*/
+    border: 0;
+    border-radius: 0;
+}
+.navbar.navbar,
+.navbar-default.navbar {
+    background-color: #83c6c3;
+    /*background-color: #009688;*/
+    color: rgba(255, 255, 255, 0.84);
+}
+.navbar-default.navbar .dropdown-menu li > a:focus {
+    color: #83c6c3;
+    /*color: #009688;*/
+    background-color: #eeeeee;
+}
+.navbar.navbar .dropdown-menu .active > a,
+.navbar-default.navbar .dropdown-menu .active > a {
+    background-color: #83c6c3;
+    /*background-color: #009688;*/
+    color: rgba(255, 255, 255, 0.84);
+}
+.navbar-primary.navbar {
+    background-color: #83c6c3;
+    /*background-color: #009688;*/
+    color: rgba(255, 255, 255, 0.84);
+}
+.navbar-primary.navbar .dropdown-menu li > a:focus {
+    color: #83c6c3;
+    /*color: #009688;*/
+    background-color: #eeeeee;
+}
+.navbar-primary.navbar .dropdown-menu .active > a {
+    background-color: #83c6c3;
+    /*background-color: #009688;*/
+    color: rgba(255, 255, 255, 0.84);
+}
+.nav-tabs {
+    background: #44a4da;
+    /*background: #009688;*/
+}
+.nav-tabs > li > a {
+    color: #FFFFFF;
+    border: 0;
+    margin: 0;
+}
+.nav-tabs > li > a:hover {
+    background-color: transparent;
+    border: 0;
+}
+.nav-tabs > li > a,
+.nav-tabs > li > a:hover,
+.nav-tabs > li > a:focus {
+    background-color: transparent !important;
+    border: 0 !important;
+    color: #FFFFFF !important;
+    font-weight: bold;
+}
+.nav-tabs > li.disabled > a,
+.nav-tabs > li.disabled > a:hover {
+    color: rgba(255, 255, 255, 0.5);
+}
+.nav-tabs > li.active {
+    background: #278bce;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:hover,
+.nav-tabs > li.active > a:focus {
+    color: #FFFFFF !important;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-bottom-color: transparent;
+    font-weight: bold;
+}
+i.active, i.inactive {font-size:40px;cursor:pointer;}
+i.active, i.inactive {font-size:40px;cursor:pointer;}
+i.active { color: #5cb85c}
+i.inactive {color: #d9534f}
+button.active, button.inactive {font-size:20px;cursor:pointer;}
+button.active, button.inactive {font-size:20px;cursor:pointer;}
+button.active { color: #5cb85c}
+button.inactive {color: #d9534f}
+.btn-info.active:not(.btn-link):not(.btn-flat) span.text-info { color: #ffffff}
+.dropup .btn.btn-sm {
+    padding: 5px 8px;
+}
+.datetime-picker-dropdown {
+}
+
+.datetime-picker-dropdown > li.date-picker-menu div > table .btn-default {
+    border: 0;
+}
+
+.datetime-picker-dropdown > li.time-picker-menu div > table {
+}
+.label-fm {
+    line-height: 34px;
+    height: 1em; /* so overflow hidden works and keeps text on one row */
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.header-fm {
+    padding-top: 0px;
+}
+.div-input-fr, .div-input-fr-lg {
+    padding-left: 25px;
+}
+
+#hoeapp-wrapper[hoe-device-type="tablet"] :not(.hoe-minimized-lpanel) .div-input-fr-lg {
+    padding-left: 35px;
+}
+.toggle-switch-fm {
+    padding: 15px;
+}
+
+.check-ok {
+    color: #00AA9A;
+}
+
+.check-error {
+    color: #F55549;
+}
+
+.check-warning-red {
+    color: #FF4400;
+}
+
+.check-warning-yellow {
+    color: #FFE800;
+}
+
+.check-loading {
+    color: #000000;
+}
+
+.check-disconnected {
+    color: #A3A3A3;
+}
+
+.ngdialog.ngdialog-theme-default.vmi-ngDialog .ngdialog-close:before {
+    font-family: FontAwesome;
+    content: '\f057';
+    font-size: 26px;
+    color: #F55549;
+}
+
+.grid-sizer, .grid-item  { width: 50%;}
+.grid-sizer-rc, .grid-item-rc { width: 50%;}
+.grid-item { padding: 15px;}
+.grid-item-rc {
+    padding-left: 5px;
+    padding-right: 5px;
+    padding-top: 3px;
+}
+@media screen and (max-width: 768px) {
+    .grid-sizer, .grid-item{ width: 100%; /*margin-left: 15px;*/ }
+    .grid-sizer-rc, .grid-item-rc{ width: 100%;}
+}
+
+.fileUpload {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+}
+.fileUpload input.upload {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+}
+.btn-file {
+    position: relative;
+    overflow: hidden;
+}
+.btn-file input[type=file] {
+    position: absolute;
+    top: 0;
+    right: 0;
+    min-width: 100%;
+    min-height: 100%;
+    font-size: 100px;
+    text-align: right;
+    filter: alpha(opacity=0);
+    opacity: 0;
+    background: red;
+    cursor: inherit;
+    display: block;
+}
+.browse-group.input-group-btn {
+    padding-right: 10px;
+}
+input[readonly] {
+    background-color: white !important;
+    cursor: text !important;
+}
+tr.st-selected > td > span > .list-checkmark:after {
+    font-family: FontAwesome;
+    font-style: normal;
+    content: '\f046';
+}
+tr:not(.st-selected) > td > span >  .list-checkmark:after {
+    font-family: FontAwesome;
+    font-style: normal;
+    content: '\f096';
+}
+
+.selectable_table > tbody > tr:hover > td {
+    cursor: pointer;
+}
+
+.stats.well > div > .row > h2 {
+    margin: 0;
+    font-style: normal;
+    font-weight: lighter;
+    font-size: 43px;
+}
+.stats.well > div > .row > h4 {
+    margin: 0;
+    font-weight: lighter;
+    font-size: 15px;
+}
+.stats.well:hover{
+    box-shadow: 2px 10px 10px 2px;
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (min-width : 992px) {
+    .well.clearfix.rc-card-sm{
+        min-height:186px;
+    }
+}
+
+/* ngTagsInput Config */
+
+tags-input .tags {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    max-height: 55px;
+    overflow-y: scroll;
+    max-width: 650px;
+    min-width: 650px;
+}
+tags-input.tags-no-min-width .tags  {
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075);
+    -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+    max-height: 55px;
+    overflow-y: scroll;
+    max-width: 650px;
+    min-width: 50px;
+}
+tags-input .tags .tag-item {
+    color: #fff;
+    background: #428bca;
+    border: 1px solid #357ebd;
+    border-radius: 4px;
+}
+tags-input.ti-input-sm-perm .tags .tag-item {
+    border: 1px solid slategray;
+}
+tags-input.ti-input-sm-perm .tags .tag-item.selected,
+tags-input .tags .tag-item.selected {
+    color: #fff;
+    background: #d9534f;
+    border: 1px solid #d43f3a;
+}
+tags-input .tags .tag-item .remove-button:hover {
+    text-decoration: none;
+}
+tags-input .tags.focused {
+    border: 1px solid #66afe9;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(102, 175, 233, 0.6);
+}
+tags-input .autocomplete {
+    border-radius: 4px;
+    min-width: 250px;
+}
+tags-input .autocomplete .suggestion-list {
+    margin: 0;
+    padding: 0;
+    list-style-type: none;
+    max-height: 100px;
+    overflow-y: auto;
+    overflow-x: auto;
+    position: relative;
+    min-width: 250px;
+}
+tags-input .autocomplete .suggestion-item.selected {
+    color: #262626;
+    background-color: #f5f5f5;
+}
+tags-input .autocomplete .suggestion-item.selected em {
+    color: #262626;
+    background-color: #f5f5f5;
+}
+tags-input .autocomplete .suggestion-item em {
+    color: #000;
+    background-color: #fff;
+}
+tags-input.ng-invalid .tags {
+    border-color: #843534;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+}
+tags-input[disabled] .tags {
+    background-color: #eee;
+}
+tags-input[disabled] .tags .tag-item {
+    background: #337ab7;
+    opacity: 0.65;
+}
+tags-input[disabled] .tags .input {
+    background-color: #eee;
+}
+
+.input-group tags-input {
+    padding: 0;
+    display: table-cell;
+}
+.input-group tags-input:not(:first-child) .tags {
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+}
+.input-group tags-input:not(:last-child) .tags {
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+}
+
+.input-group-lg tags-input:first-child .tags {
+    border-top-left-radius: 6px;
+    border-bottom-left-radius: 6px;
+}
+.input-group-lg tags-input:last-child .tags {
+    border-top-right-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+
+.input-group-sm tags-input:first-child .tags {
+    border-top-left-radius: 3px;
+    border-bottom-left-radius: 3px;
+}
+.input-group-sm tags-input:last-child .tags {
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+tags-input.ti-input-lg, .input-group-lg tags-input {
+    min-height: 46px;
+}
+tags-input.ti-input-lg .tags, .input-group-lg tags-input .tags {
+    border-radius: 6px;
+}
+tags-input.ti-input-lg .tags .tag-item, .input-group-lg tags-input .tags .tag-item {
+    height: 38px;
+    line-height: 37px;
+    font-size: 18px;
+    border-radius: 6px;
+}
+tags-input.ti-input-lg .tags .tag-item .remove-button, .input-group-lg tags-input .tags .tag-item .remove-button {
+    font-size: 20px;
+}
+tags-input.ti-input-lg .tags .input, .input-group-lg tags-input .tags .input {
+    height: 38px;
+    font-size: 18px;
+}
+tags-input.ti-input-sm, tags-input.ti-input-sm-perm, .input-group-sm tags-input {
+    min-height: 30px;
+}
+tags-input.ti-input-sm .tags, tags-input.ti-input-sm-perm .tags, .input-group-sm tags-input .tags {
+    border-radius: 3px;
+}
+tags-input.ti-input-sm .tags .tag-item, tags-input.ti-input-sm-perm .tags .tag-item, .input-group-sm tags-input .tags .tag-item {
+    height: 22px;
+    line-height: 21px;
+    font-size: 12px;
+    border-radius: 3px;
+}
+tags-input.ti-input-sm-perm .tags .tag-item, .input-group-sm tags-input .tags .tag-item {
+    height: 22px;
+    line-height: 21px;
+    font-size: 12px;
+    border-radius: 3px;
+    background: slategray;
+}
+tags-input.ti-input-sm .tags .tag-item .remove-button, .input-group-sm tags-input .tags .tag-item .remove-button {
+    font-size: 16px;
+}
+tags-input.ti-input-sm .tags .input, .input-group-sm tags-input .tags .input {
+    height: 22px;
+    font-size: 12px;
+}
+
+.has-feedback tags-input .tags {
+    padding-right: 30px;
+}
+
+.has-success tags-input .tags {
+    border-color: #3c763d;
+}
+.has-success tags-input .tags.focused {
+    border-color: #2b542c;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #67b168;
+}
+
+.has-error tags-input .tags {
+    border-color: #a94442;
+}
+.has-error tags-input .tags.focused {
+    border-color: #843534;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #ce8483;
+}
+
+.has-warning tags-input .tags {
+    border-color: #8a6d3b;
+}
+.has-warning tags-input .tags.focused {
+    border-color: #66512c;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
+    -moz-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 6px #c0a16b;
+}
+
+/* End of ngTagsInput Config */
+
+.ngdialog.ngdialog-theme-default.ngdialog-wide .ngdialog-content {
+    width: 80%;
+    right: 10%;
+    top:3%;
+    outline: none;
+    position: absolute;
+}
+
+.ngdialog.ngdialog-theme-default.ngdialog-wide-full .ngdialog-content {
+    width: 98%;
+    right: 1%;
+    top:3%;
+    outline: none;
+    position: absolute;
+}
+/* Large Devices, Wide Screens */
+@media only screen and (max-width : 1200px) {
+    .ngdialog.ngdialog-theme-default.ngdialog-wide .ngdialog-content {
+        width: 80%;
+        right: 10%;
+        top:3%;
+        outline: none;
+        position: absolute;
+    }
+}
+
+/* Medium Devices, Desktops */
+@media only screen and (max-width : 992px) {
+    .ngdialog.ngdialog-theme-default.ngdialog-wide .ngdialog-content {
+        width: 80%;
+        right: 10%;
+        top:3%;
+        outline: none;
+        position: absolute;
+    }
+
+}
+
+/* Small Devices, Tablets */
+@media only screen and (max-width : 768px) {
+    .ngdialog.ngdialog-theme-default.ngdialog-wide .ngdialog-content {
+        width: 96%;
+        right: 2%;
+        top:3%;
+        outline: none;
+        position: absolute;
+    }
+
+}
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width : 480px) {
+    .ngdialog.ngdialog-theme-default.ngdialog-wide .ngdialog-content {
+        width: 96%;
+        right: 2%;
+        top:3%;
+        outline: none;
+        position: absolute;
+    }
+
+}
+
+/* Custom, iPhone Retina */
+@media only screen and (max-width : 320px) {
+    .ngdialog.ngdialog-theme-default.ngdialog-wide .ngdialog-content {
+        width: 96%;
+        right: 2%;
+        top:3%;
+        outline: none;
+    }
+
+}
+select.dropdown-first-disable {
+    color: #c2c2c2;
+}
+input[readonly="readonly"] {
+    color: #c2c2c2;
+    background: transparent;
+}
+
+li.popover-li{
+    margin: 2px;
+    padding: 0;
+}
+ul.popover-ul{
+    margin: 0;
+    padding: 3px;
+}
+
+
+
+.scrolling_table {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    height: 500px; /* this can vary */
+}
+
+.scrolling_table * {
+    box-sizing: inherit;
+    -moz-box-sizing: inherit;
+}
+
+.scrolling_table thead {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+}
+
+.scrolling_table tbody {
+    overflow-y: scroll;
+    display: inline-block;
+}
+
+.scrolling_table thead >  tr, .scrolling_table tbody > tr, .scrolling_table tfoot > tr {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+}
+
+.scrolling_table thead, .scrolling_table tfoot {
+    flex-shrink: 0;
+}
+
+.scrolling_table th, .scrolling_table tbody td {
+    width: 100%; /* this can vary */
+    overflow-x: hidden;
+    text-overflow: ellipsis;
+    display: inline-block;
+}
+
+.scrolling_table tfoot {
+    display: inline-block;
+}
+
+.scrolling_table tfoot td {
+    width: 100%;
+    display: inline-block;
+}
+
+.btn.btn-primary.btn-xs.btn-settings {
+    background-color: slategray;
+}
+
+.widget_poster img {
+    width: 100px;
+    height: 67px;
+}
+.ngdialog.ngdialog-theme-default.create-wt .ngdialog-content .widget_image img {
+    width: 100%;
+    height: 10vw;
+}
+
+.ngdialog.ngdialog-theme-default.create-wt .ngdialog-content {
+    width: 1200px;
+}
+
+.ngdialog.ngdialog-theme-default.create-wt .ngdialog-content .create-wt-fields input{
+    width: 65%;
+    display: inline-block;
+}
+
+.ngdialog.ngdialog-theme-default.create-wt .ngdialog-content .create-wt-fields label{
+    width: 29%;
+    display: inline-block;
+}
+
+.ngdialog.ngdialog-theme-default.create-wt .ngdialog-content .create-wt-fields select{
+    width: 70%;
+    display: inline-block;
+}
+
+.ngdialog.ngdialog-theme-default.create-wt .ngdialog-content .create-wt-fields-specific input{
+    width: 86%;
+    display: inline-block;
+}
+
+.ngdialog.ngdialog-theme-default.create-wt .ngdialog-content .create-wt-fields-specific label{
+    width: 13%;
+    display: inline-block;
+}
+
+.ngdialog.ngdialog-theme-default.create-wt .ngdialog-content .create-wt-fields-specific select{
+    width: 70%;
+    display: inline-block;
+}
+
+.ngdialog.ngdialog-theme-default.create-wt .ngdialog-content .btn-group .size-active{
+    background-color: #00a896;
+}
+
+.ngdialog.ngdialog-theme-default.create-wt .ngdialog-content .editable-buttons{
+    margin-top: 15px;
+}
+
+.ngdialog.ngdialog-theme-default.create-wt .ngdialog-content .form-group{
+    margin-bottom: 5px;
+}
+
+span .badge.badge-lang {
+    padding: 1px 5px;
+    font-size:10px;
+}

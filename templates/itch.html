@@ -1,0 +1,34 @@
+{% load staticfiles %}
+
+<!DOCTYPE html>
+<html ng-app="itch">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ITCH</title>
+    <base href="/" />
+
+    <link rel="shortcut icon" href="http://www.iamsterdam.com/Includes/favicons/favicon.ico" type="image/x-icon">
+    {% include 'itch_stylesheets.html' %}
+</head>
+
+<body style="overflow-y: scroll; overflow:hidden" id="itch_body">
+<!-- MAIN CONTENT -->
+<!-- This section is what should hold the actual shown content -->
+<section id="main-content">
+    <div class="inner-content">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-xs-12 ng-view"></div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- END OF MAIN CONTENT-->
+
+<div id="javascript-imports">
+    {% include 'itch_javascripts.html' %}
+</div>
+</body>
+</html>

@@ -1,0 +1,31 @@
+{% load compress %}
+{% load staticfiles %}
+
+{% compress js %}
+    <script>if (typeof module === 'object') {window.module = module; module = undefined;}</script>
+
+    <script type="text/javascript" src="{% static 'common/components/jquery/dist/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'common/components/angular-1.4.8/angular.js' %}"></script>
+    <script type="text/javascript" src="{% static 'common/components/angular-1.4.8/angular-route.js' %}"></script>
+    <script type="text/javascript" src="{% static 'common/components/angular-1.4.8/angular-cookies.js' %}"></script>
+    <script type="text/javascript" src="{% static 'common/components/angular-sanitize/angular-sanitize.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'common/components/ngDialog/ngDialog.js' %}"></script>
+    <script type="text/javascript" src="{% static 'common/components/ng-websocket/ng-websocket.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'common/components/angular-kaarousel/lodash.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'common/components/angular-kaarousel/angular-touch.js' %}"></script>
+    <script type="text/javascript" src="{% static 'common/components/angular-kaarousel/angular-kaarousel.js' %}"></script>
+    <script type="text/javascript" src="{% static 'common/components/cssuseragent/cssua.js' %}"></script>
+    <script type="text/javascript" src="{% static 'common/components/moment/moment-with-locales.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'common/components/moment/moment-timezone-with-data.min.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'itch/js/itch.js' %}"></script>
+    <script type="text/javascript" src="{% static 'itch/js/itch.config.js' %}"></script>
+    <script type="text/javascript" src="{% static 'itch/js/itch.routes.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'itch/js/itch.front.module.js' %}"></script>
+    <script type="text/javascript" src="{% static 'itch/js/controllers/itch.front.controller.js' %}"></script>
+
+    <script>if (window.module) module = window.module;</script>
+{% endcompress %}

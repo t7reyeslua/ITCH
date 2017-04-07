@@ -1,0 +1,35 @@
+<!-- KAAROUSEL MAIN WRAPPER -->
+<kaarousel-wrapper>
+
+	<!-- SLIDER WRAPPER -->
+	<kaarousel-slider-container>
+
+        <!-- SLIDING PART -->
+		<kaarousel-slider ng-transclude class="kaarousel-slider"></kaarousel-slider>
+
+	</kaarousel-slider-container>
+
+	<!-- PREV / NEXT NAV -->
+	<kaarousel-nav
+        ng-class="{'is-hidden': !kc.navigation.visible}">
+
+        <!-- PREV -->
+		<kaarousel-prev
+            ng-click="kc.move(null, true)"
+            ng-class="{'is-hidden': !kc.navigation.prev.visible}">PREV</kaarousel-prev>
+
+        <!-- NEXT -->
+		<kaarousel-next
+            ng-click="kc.move(true, true)"
+            ng-class="{'is-hidden': !kc.navigation.next.visible}">NEXT</kaarousel-next>
+
+	</kaarousel-nav>
+
+	<!-- PAGER -->
+	<kaarousel-pager ng-class="{'is-hidden': !kc.pager.visible}">
+		<ul>
+			<li ng-repeat="i in kc.getPages() track by $index" ng-click="kc.movePage($index)" ng-class="{selected: $index === kc.currentPage}">{{$index}}</li>
+		</ul>
+	</kaarousel-pager>
+
+</kaarousel-wrapper>

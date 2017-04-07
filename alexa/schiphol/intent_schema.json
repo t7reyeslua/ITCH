@@ -1,0 +1,88 @@
+{
+  "intents": [
+    {
+      "intent": "WhereIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
+        },
+        {
+          "name": "GateLetter",
+          "type": "LETTER"
+        },
+        {
+          "name": "GateNumber",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "WhenIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
+        },
+        {
+          "name": "GateLetter",
+          
+          "type": "LETTER"
+        },
+        {
+          "name": "GateNumber",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "FlightIntent",
+      "slots": []
+    },
+    {
+      "intent": "FlightNumberIntent",
+      "slots": [
+        {
+          "name": "LetterOne",
+          "type": "LETTER"
+        },
+        {
+          "name": "LetterTwo",
+          "type": "LETTER"
+        },
+        {
+          "name": "Number",
+          "type": "AMAZON.NUMBER"
+        }
+      ]
+    },
+    {
+      "intent": "RecommendationIntent",
+      "slots": []
+    },
+    {
+      "intent": "NoThanksIntent",
+      "slots": []
+    },
+    {
+      "intent": "RecommendIntent",
+      "slots": []
+    },
+    {
+      "intent": "BarcodeIntent",
+      "slots": []
+    },
+    {
+      "intent": "ThanksIntent",
+      "slots": []
+    },
+    {
+      "intent": "AbilitiesIntent",
+      "slots": []
+    },
+    {
+      "intent": "HelpfulIntent",
+      "slots": []
+    }
+  ]
+}

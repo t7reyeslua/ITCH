@@ -1,0 +1,12 @@
+{% load compress %}
+{% load staticfiles %}
+
+{% compress css %}
+<link rel="stylesheet" type="text/css" href="{% static 'common/components/font-awesome-4.4.0/css/font-awesome.min.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'common/components/angular-kaarousel/angular-kaarousel.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'common/components/ngDialog/ngDialog.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'common/components/ngDialog/ngDialog-theme-default.css' %}" />
+<link rel="stylesheet" type="text/css" href="{% static 'common/css/fonts/material.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'common/css/fonts/vbh-icons.css' %}">
+<link rel="stylesheet" type="text/css" href="{% static 'itch/css/itch.css' %}">
+{% endcompress %}

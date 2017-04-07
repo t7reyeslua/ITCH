@@ -1,0 +1,129 @@
+/*@media*/
+/*only screen and (max-width: 780px) {*/
+/* Force table to not be like tables anymore */
+.st-responsive tr {
+	display: inline-block;
+}
+.st-responsive table,
+.st-responsive thead,
+.st-responsive tbody,
+.st-responsive th,
+.st-responsive td,
+.st-responsive tr:not(.column-headers) {
+	display: block;
+}
+
+
+/* Hide table headers (but not display: none;, for accessibility) */
+.st-responsive .column-headers th {
+	/*position: absolute;*/
+	/*top: -9999px;*/
+	/*left: -9999px;*/
+	display: inline-block;
+	padding-left: 0px;
+	padding-right: 12px;
+	padding-top: 4px;
+	padding-bottom: 4px;
+	border-style: solid;
+	border-radius: 8px;
+	border-color: #81C6C4;
+	background: #81C6C4;
+	color: #fff;
+	margin-bottom: 8px;
+	margin-top: 8px;
+	-webkit-box-shadow:0px 1px 1px #7e7e7e;
+	-moz-box-shadow:0px 1px 1px #7e7e7e;
+	box-shadow:0px 1px 1px #7e7e7e;
+}
+
+.st-responsive .column-headers th:not([st-sort]) {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+}
+
+.st-responsive .column-headers .st-sort-ascent,
+.st-responsive .column-headers .st-sort-descent
+{
+	border-style: solid;
+	border-radius: 8px;
+	border-color: #009688;
+	background: #009688;
+	color: #fff;
+}
+
+.st-responsive tbody tr { border: 1px solid #ccc; }
+
+.st-responsive tbody tr td {
+	/* Behave  like a "row" */
+	border: none;
+	border-bottom: 1px solid #eee;
+	position: relative;
+	padding: 8px;
+	padding-left: 50%;
+	min-height: 30px;
+}
+
+.st-responsive td:before {
+	/* Now like a table header */
+	position: absolute;
+	/* Top/left values mimic padding */
+	top: 6px;
+	left: 6px;
+	width: 45%;
+	padding-right: 10px;
+	white-space: nowrap;
+	font-weight: bold;
+}
+
+
+/*
+Label the data
+*/
+#st-movies-list.st-responsive tbody td:nth-of-type(1):before { content: ""; }
+#st-movies-list.st-responsive tbody td:nth-of-type(2):before { content: "Original Title"; }
+#st-movies-list.st-responsive tbody td:nth-of-type(3):before { content: "Score"; }
+#st-movies-list.st-responsive tbody td:nth-of-type(4):before { content: "Added"; }
+#st-movies-list.st-responsive tbody td:nth-of-type(5):before { content: "Year"; }
+#st-movies-list.st-responsive tbody td:nth-of-type(6):before { content: "Runtime"; }
+#st-movies-list.st-responsive tbody td:nth-of-type(7):before { content: "Studio"; }
+#st-movies-list.st-responsive tbody td:nth-of-type(8):before { content: "Quality"; }
+#st-movies-list.st-responsive tbody td:nth-of-type(9):before { content: "Ingestion stage"; }
+#st-movies-list.st-responsive tbody td:nth-of-type(10):before { content: "Ingestion status"; }
+#st-movies-list.st-responsive tbody td:nth-of-type(11):before { content: "Concert"; }
+#st-movies-list.st-responsive tbody td:nth-of-type(12):before { content: "Adult"; }
+
+#st-devices-list.st-responsive tbody td:nth-of-type(1):before { content: ""; }
+#st-devices-list.st-responsive tbody td:nth-of-type(2):before { content: "Name"; }
+#st-devices-list.st-responsive tbody td:nth-of-type(3):before { content: "Type"; }
+#st-devices-list.st-responsive tbody td:nth-of-type(4):before { content: "Location"; }
+#st-devices-list.st-responsive tbody td:nth-of-type(5):before { content: "IP"; }
+#st-devices-list.st-responsive tbody td:nth-of-type(6):before { content: "MAC"; }
+#st-devices-list.st-responsive tbody td:nth-of-type(7):before { content: "Online"; }
+#st-devices-list.st-responsive tbody td:nth-of-type(8):before { content: "Registered"; }
+
+#st-virtual-devices-list.st-responsive tbody td:nth-of-type(1):before { content: "Pivot ID"; }
+#st-virtual-devices-list.st-responsive tbody td:nth-of-type(2):before { content: "Type"; }
+#st-virtual-devices-list.st-responsive tbody td:nth-of-type(3):before { content: "Active User"; }
+#st-virtual-devices-list.st-responsive tbody td:nth-of-type(4):before { content: "Online"; }
+
+#st-other-devices-list.st-responsive tbody td:nth-of-type(1):before { content: "Name"; }
+#st-other-devices-list.st-responsive tbody td:nth-of-type(2):before { content: "Type"; }
+#st-other-devices-list.st-responsive tbody td:nth-of-type(3):before { content: "IP"; }
+#st-other-devices-list.st-responsive tbody td:nth-of-type(4):before { content: "Online"; }
+
+#st-imported-devices-list.st-responsive tbody td:nth-of-type(1):before { content: "Name"; }
+#st-imported-devices-list.st-responsive tbody td:nth-of-type(2):before { content: "IP"; }
+#st-imported-devices-list.st-responsive tbody td:nth-of-type(3):before { content: "MAC"; }
+#st-imported-devices-list.st-responsive tbody td:nth-of-type(4):before { content: "Type"; }
+#st-imported-devices-list.st-responsive tbody td:nth-of-type(5):before { content: "Location"; }
+#st-imported-devices-list.st-responsive tbody td:nth-of-type(6):before { content: "Default user UID"; }
+#st-imported-devices-list.st-responsive tbody td:nth-of-type(7):before { content: "Volume Fixed"; }
+#st-imported-devices-list.st-responsive tbody td:nth-of-type(8):before { content: "Delete"; }
+
+#st-services-list.st-responsive tbody td:nth-of-type(1):before { content: "Server"; }
+#st-services-list.st-responsive tbody td:nth-of-type(2):before { content: "Name"; }
+#st-services-list.st-responsive tbody td:nth-of-type(3):before { content: "Type"; }
+#st-services-list.st-responsive tbody td:nth-of-type(4):before { content: "Status"; }
+/*}*/
+
