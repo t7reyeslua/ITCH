@@ -38,6 +38,7 @@ def ip4_addresses():
     return ip_list
 ALLOWED_HOSTS = ip4_addresses()
 ALLOWED_HOSTS.append('localhost')
+ALLOWED_HOSTS.append('34.205.252.226')
 
 
 # Application definition
