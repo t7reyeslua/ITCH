@@ -47,6 +47,25 @@ def ws_disconnect(message):
     return
 
 
+def broadcastWS(group_name, message, respond_id=None, starter=None):
+    '''
+    Send a message to a group
+    '''
+    logger.info(
+        '>>>Sending to group %s - message: %s' % (group_name, str(message)))
+
+    ppmessage = pprint.pformat(message)
+    logger.debug(
+        '>>>Sending<<<\n' +
+        '\treceiver_group:\t\t%s\n' % group_name +
+        '\tstarter_channel:\t%s\n' % str(starter) +
+        '\t=============================================\n'
+        '\t%s\n' % str(ppmessage) +
+        '\t=============================================')
+
+    Group(group_name).send({'text': json.dumps(message)})
+    return
+
 class MessageHandler():
 
     def __init__(self, channel):

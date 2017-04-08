@@ -1,0 +1,33 @@
+WhereIntent how to get to {Location}
+WhereIntent I'm looking for {Location}
+WhereIntent where is {Location}
+WhereIntent where {Location} is
+WhereIntent how to get to {Location}
+WhereIntent I'm looking for {Location}
+WhereIntent is there a {Location} here
+WhereIntent is {Location} here
+WhenIntent how long to {Location}
+WhenIntent how far is it to {Location}
+WhenIntent how far away is {Location}
+WhenIntent how far away {Location} is
+RecommendationIntent Sure
+RecommendationIntent Okay
+RecommendationIntent Sounds good
+RecommendationIntent good idea
+RecommendationIntent How do I get there
+RecommendationIntent Can you direct me there
+NoThanksIntent no thanks
+NoThanksIntent not right now
+NoThanksIntent nevermind
+RecommendIntent recommend something
+RecommendIntent recommend somewhere
+RecommendIntent suggest something
+RecommendIntent suggest somewhere
+RecommendIntent surprise me
+RecommendIntent how about something else
+RecommendIntent something else
+ThanksIntent thanks
+ThanksIntent cool
+AbilitiesIntent what can you do
+AbilitiesIntent what are you capable of
+HelpfulIntent very helpful

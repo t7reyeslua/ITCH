@@ -1,0 +1,50 @@
+{
+  "intents": [
+    {
+      "intent": "WhereIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
+        }
+      ]
+    },
+    {
+      "intent": "WhenIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
+        }
+      ]
+    },
+    {
+      "intent": "RecommendationIntent",
+      "slots": []
+    },
+    {
+      "intent": "NoThanksIntent",
+      "slots": []
+    },
+    {
+      "intent": "RecommendIntent",
+      "slots": []
+    },
+    {
+      "intent": "BarcodeIntent",
+      "slots": []
+    },
+    {
+      "intent": "ThanksIntent",
+      "slots": []
+    },
+    {
+      "intent": "AbilitiesIntent",
+      "slots": []
+    },
+    {
+      "intent": "HelpfulIntent",
+      "slots": []
+    }
+  ]
+}
