@@ -1,0 +1,5 @@
+museum
+bar
+park
+brewery
+interesting place

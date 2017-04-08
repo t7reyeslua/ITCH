@@ -6,6 +6,37 @@
         {
           "name": "Location",
           "type": "LOCATIONS"
+        },
+        {
+          "name": "VenueType",
+          "type": "VENUE_TYPES"
+        }
+      ]
+    },
+    {
+      "intent": "TransportationIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
+        }
+      ]
+    },
+    {
+      "intent": "DistanceIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
+        }
+      ]
+    },
+    {
+      "intent": "WeatherIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
         }
       ]
     },
@@ -19,6 +50,14 @@
       ]
     },
     {
+      "intent": "BenefitsIntent",
+      "slots": []
+    },
+    {
+      "intent": "QuickFactIntent",
+      "slots": []
+    },
+    {
       "intent": "RecommendationIntent",
       "slots": []
     },
@@ -28,10 +67,6 @@
     },
     {
       "intent": "RecommendIntent",
-      "slots": []
-    },
-    {
-      "intent": "BarcodeIntent",
       "slots": []
     },
     {
