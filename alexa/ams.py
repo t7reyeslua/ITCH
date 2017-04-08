@@ -130,6 +130,71 @@ def get_color_from_session(intent, session):
     return build_response(session_attributes, build_speechlet_response(
         intent['name'], speech_output, reprompt_text, should_end_session))
 
+
+# --------------- Slots ------------------
+
+def get_location_slot(intent, session, session_attributes):
+    location = None
+
+    # See if it's already in the session. If so, return that.
+    if "LOCATION_KEY" in session.get('attributes', {}):
+        location = session['attributes']['LOCATION_KEY']
+        print("Found location " + location + " in session")
+
+    # Get from slot.
+    if location is None:
+        print("Did not find location in session")
+        if 'Location' in intent['slots'] and 'value' in intent['slots']['Location']:
+            print("Found location: " + intent['slots']['Location']['value'])
+            location = intent['slots']['Location']['value']
+
+    # Set in session.
+    print("Setting location " + location + " in session")
+    session_attributes["LOCATION_KEY"] = location
+
+    return location
+
+def get_venue_type_slot(intent, session, session_attributes):
+    venue_type = None
+
+    # See if it's already in the session. If so, return that.
+    if "VENUE_TYPE_KEY" in session.get('attributes', {}):
+        venue_type = session['attributes']['VENUE_TYPE_KEY']
+        print("Found venue_type " + venue_type + " in session")
+
+    # Get from slot.
+    if venue_type is None:
+        print("Did not find venue_type in session")
+        if 'VenueType' in intent['slots'] and 'value' in intent['slots']['VenueType']:
+            print("Found venue_type: " + intent['slots']['VenueType']['value'])
+            venue_type = intent['slots']['VenueType']['value']
+
+    # Set in session.
+    print("Setting venue_type " + venue_type + " in session")
+    session_attributes["VENUE_TYPE_KEY"] = venue_type
+
+    return venue_type
+
+
+def get_name_slot(intent, session, session_attributes):
+    name = None
+
+    if "NAME_KEY" in session.get('attributes', {}):
+        name = session['attributes']['NAME_KEY']
+        print("Found name " + name + " in session")
+
+    return name
+
+
+def set_value_in_session(session, key, value):
+    print("Setting " + key + " to " + value + " in session")
+    attrs = session.get("attributes")
+    if attrs is None:
+        attrs = {}
+        session["attributes"] = attrs
+    attrs[key] = value
+
+
 # --------------- Speaking ------------------
 
 def say_thanks(intent, session):
@@ -271,6 +336,20 @@ def handleRecommendIntent(intent, session):
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
+def handleTellSomeoneSomethingIntent(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = True
+    reprompt_text = ""
+
+    who = intent['slots'].get('Name', {}).get('value', 'Andres')
+    what = intent['slots'].get('Action', {}).get('value', 'shut up')
+
+    speech_output = "%s, %s" % (who, what)
+
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
 
 def handleRecommendationIntent(intent, session):
     card_title = intent['name']
@@ -345,6 +424,9 @@ def on_intent(intent_request, session):
     elif intent_name == "BenefitsIntent":
         print("Got BenefitsIntent")
         return handleBenefitsIntent(intent, session)
+    elif intent_name == "TellSomeoneSomethingIntent":
+        print("Got TellSomeoneSomethingIntent")
+        return handleTellSomeoneSomethingIntent(intent, session)
     elif intent_name == "ThanksIntent":
         print("Got ThanksIntent")
         return say_thanks(intent, session)

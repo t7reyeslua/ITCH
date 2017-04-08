@@ -50,6 +50,19 @@
       ]
     },
     {
+      "intent": "TellSomeoneSomethingIntent",
+      "slots": [
+        {
+          "name": "Name",
+          "type": "NAMES"
+        },
+        {
+          "name": "Action",
+          "type": "ACTIONS"
+        }
+      ]
+    },
+    {
       "intent": "BenefitsIntent",
       "slots": []
     },

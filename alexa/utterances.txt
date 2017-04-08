@@ -39,3 +39,4 @@ AbilitiesIntent what are you capable of
 BenefitsIntent What are your benefits
 BenefitsIntent Tell me your benefits
 HelpfulIntent very helpful
+TellSomeoneSomethingIntent Tell {Name} to {Action}
