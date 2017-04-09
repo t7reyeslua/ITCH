@@ -83,7 +83,7 @@
                 };
 
                 if (message.data.message == "Welcome to Amsterdam. What can I do for you?" ||
-                    message.data.message == "OK." || message.data.message.lowercase == "no problem.") {
+                    message.data.message == "OK." || message.data.message == "No problem.") {
                     console.info('same string');
                     $scope.chat_array = [];
                 } else {
