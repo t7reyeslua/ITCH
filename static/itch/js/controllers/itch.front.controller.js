@@ -17,6 +17,10 @@
             setWebsocketConnection();
         }
 
+        $scope.chat_array = [];
+        $scope.side = 'right';
+        $scope.map_image = '/static/common/images/map_ams.png';
+
 // [END] Init section ==============================================================================
 
 // [START] Websocket section =======================================================================
@@ -63,9 +67,39 @@
             vm.ws.send(JSON.stringify(msg));
         }
 
+        function updateScroll(){
+            var element = document.getElementById("chatbox");
+            element.scrollTop = element.scrollHeight;
+        }
+
         function receiveWebsocketMessage(jsonString){
             var message = JSON.parse(jsonString);
             console.log(message);
+
+            if ("undefined" !== typeof message.data.message ) {
+                var data_msg = {
+                    'message': message.data.message,
+                    'side': $scope.side
+                };
+                $scope.chat_array.push(data_msg);
+                updateScroll();
+                if (message.data.hasOwnProperty('image')) {
+                    $scope.map_image = message.data.image;
+                }
+
+                $timeout(function(){
+                    $scope.$digest();
+                });
+            }
+
+            console.info($scope.chat_array);
+            if ($scope.side === 'right'){
+                $scope.side = 'left';
+            } else {
+                $scope.side = 'right';
+            }
+
+
             switch (message.command) {
                 case 'details':
                     console.log(message.data);
