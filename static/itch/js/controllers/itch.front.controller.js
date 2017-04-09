@@ -96,7 +96,8 @@
             if ($scope.side === 'right'){
                 $scope.side = 'left';
             } else {
-                $scope.side = 'right';
+                // $scope.side = 'right';
+                $scope.side = 'left';
             }
 
 
