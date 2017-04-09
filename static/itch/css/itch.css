@@ -101,11 +101,11 @@ body{
     position: absolute;
     width: 0;
     height: 0;
-    left: -34px;
+    left: -27px;
     right: auto;
-    top: -9px;
+    top: -3px;
     bottom: auto;
-    border: 32px solid;
+    border: 26px solid;
     border-color: #666 transparent transparent transparent;
 }
 .tri-right.left-top:after{

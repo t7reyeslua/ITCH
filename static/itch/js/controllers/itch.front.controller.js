@@ -81,16 +81,20 @@
                     'message': message.data.message,
                     'side': $scope.side
                 };
-                if (message.data.message === 'Welcome to Amsterdam. What can I do for you?' &&
-                    message.data.message === 'OK.') {
+
+                if (message.data.message == "Welcome to Amsterdam. What can I do for you?" ||
+                    message.data.message == "OK.") {
+                    console.info('same string');
                     $scope.chat_array = [];
                 }
                 $scope.chat_array.push(data_msg);
-                updateScroll();
+
                 if (message.data.hasOwnProperty('image')) {
                     $scope.map_image = message.data.image;
                 }
-
+                $timeout(function () {
+                    updateScroll();
+                }, 100);
                 $timeout(function(){
                     $scope.$digest();
                 });
@@ -103,7 +107,9 @@
                 // $scope.side = 'right';
                 $scope.side = 'left';
             }
-
+            $timeout(function(){
+                $scope.$digest();
+            });
 
             switch (message.command) {
                 case 'details':
