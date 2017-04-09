@@ -6,6 +6,37 @@
         {
           "name": "Location",
           "type": "LOCATIONS"
+        },
+        {
+          "name": "VenueType",
+          "type": "VENUE_TYPES"
+        }
+      ]
+    },
+    {
+      "intent": "TransportationIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
+        }
+      ]
+    },
+    {
+      "intent": "DistanceIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
+        }
+      ]
+    },
+    {
+      "intent": "WeatherIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
         }
       ]
     },
@@ -19,6 +50,27 @@
       ]
     },
     {
+      "intent": "TellSomeoneSomethingIntent",
+      "slots": [
+        {
+          "name": "Name",
+          "type": "NAMES"
+        },
+        {
+          "name": "Action",
+          "type": "ACTIONS"
+        }
+      ]
+    },
+    {
+      "intent": "BenefitsIntent",
+      "slots": []
+    },
+    {
+      "intent": "QuickFactIntent",
+      "slots": []
+    },
+    {
       "intent": "RecommendationIntent",
       "slots": []
     },
@@ -27,12 +79,16 @@
       "slots": []
     },
     {
-      "intent": "RecommendIntent",
+      "intent": "SevenSeasIntent",
       "slots": []
     },
     {
-      "intent": "BarcodeIntent",
-      "slots": []
+      "intent": "RecommendIntent",
+      "slots": [
+        {
+          "name": "Action",
+          "type": "ACTIONS"
+        }]
     },
     {
       "intent": "ThanksIntent",
@@ -44,6 +100,10 @@
     },
     {
       "intent": "HelpfulIntent",
+      "slots": []
+    },
+    {
+      "intent": "SuggestIntent",
       "slots": []
     }
   ]
