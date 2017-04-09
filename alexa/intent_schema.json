@@ -1,0 +1,110 @@
+{
+  "intents": [
+    {
+      "intent": "WhereIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
+        },
+        {
+          "name": "VenueType",
+          "type": "VENUE_TYPES"
+        }
+      ]
+    },
+    {
+      "intent": "TransportationIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
+        }
+      ]
+    },
+    {
+      "intent": "DistanceIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
+        }
+      ]
+    },
+    {
+      "intent": "WeatherIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
+        }
+      ]
+    },
+    {
+      "intent": "WhenIntent",
+      "slots": [
+        {
+          "name": "Location",
+          "type": "LOCATIONS"
+        }
+      ]
+    },
+    {
+      "intent": "TellSomeoneSomethingIntent",
+      "slots": [
+        {
+          "name": "Name",
+          "type": "NAMES"
+        },
+        {
+          "name": "Action",
+          "type": "ACTIONS"
+        }
+      ]
+    },
+    {
+      "intent": "BenefitsIntent",
+      "slots": []
+    },
+    {
+      "intent": "QuickFactIntent",
+      "slots": []
+    },
+    {
+      "intent": "RecommendationIntent",
+      "slots": []
+    },
+    {
+      "intent": "NoThanksIntent",
+      "slots": []
+    },
+    {
+      "intent": "SevenSeasIntent",
+      "slots": []
+    },
+    {
+      "intent": "RecommendIntent",
+      "slots": [
+        {
+          "name": "Action",
+          "type": "ACTIONS"
+        }]
+    },
+    {
+      "intent": "ThanksIntent",
+      "slots": []
+    },
+    {
+      "intent": "AbilitiesIntent",
+      "slots": []
+    },
+    {
+      "intent": "HelpfulIntent",
+      "slots": []
+    },
+    {
+      "intent": "SuggestIntent",
+      "slots": []
+    }
+  ]
+}

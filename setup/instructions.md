@@ -92,8 +92,8 @@ After=redis-server.service
 
 [Service]
 Type=simple
-WorkingDirectory=/home/t7/dev/ITCH
-ExecStart=/home/t7/.virtualenvs/itch/bin/daphne -b 127.0.0.1 -p 9000 itch.asgi:channel_layer --root-path=/home/t7/dev/ITCH 
+WorkingDirectory=/home/ubuntu/dev/ITCH
+ExecStart=/home/ubuntu/.virtualenvs/itch/bin/daphne -b 127.0.0.1 -p 9000 itch.asgi:channel_layer --root-path=/home/ubuntu/dev/ITCH 
 Restart=always
 
 [Install]
@@ -119,8 +119,8 @@ After=redis-server.service
 
 [Service]
 Type=simple
-WorkingDirectory=/home/t7/dev/ITCH
-ExecStart=/home/t7/.virtualenvs/itch/bin/python manage.py runworker --threads 2
+WorkingDirectory=/home/ubuntu/dev/ITCH
+ExecStart=/home/ubuntu/.virtualenvs/itch/bin/python manage.py runworker --threads 2
 Restart=always
 
 [Install]
@@ -142,7 +142,7 @@ sudo systemctl start itch-workers.service
 - Run django migrations
 
 ```
-/home/t7/.virtualenvs/itch/bin/pythonpython manage.py migrate
+/home/ubuntu/.virtualenvs/itch/bin/python manage.py migrate
 ```
 
 #### ITCH project creation
@@ -154,14 +154,14 @@ have been created. This section is just for reference.
 - Create Django project
 
 ```
-cd /home/t7/dev/ITCH
+cd /home/ubuntu/dev/ITCH
 django-admin startproject itch .
 ```
 
 - Create ```config``` django app
 
 ```
-cd /home/t7/dev/ITCH
+cd /home/ubuntu/dev/ITCH
 python manage.py startapp ams
 ```
 

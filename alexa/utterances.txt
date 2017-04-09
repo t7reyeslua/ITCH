@@ -1,0 +1,46 @@
+TransportationIntent how to get to {Location}
+TransportationIntent how do I get to {Location}
+TransportationIntent {Location} sounds good How do I get there
+WhereIntent I'm looking for {Location}
+WhereIntent where is {Location}
+WhereIntent I'm looking for a {VenueType}
+WhereIntent is there a {VenueType} around
+WhereIntent is there an {VenueType} around
+DistanceIntent how long to {Location}
+DistanceIntent how far is it to {Location}
+DistanceIntent how far is it
+DistanceIntent how far away is {Location}
+DistanceIntent how far away {Location} is
+QuickFactIntent Tell me a quick fact
+QuickFactIntent Tell me a quick random fact
+QuickFactIntent Tell me something interesting from here
+QuickFactIntent Tell me something interesting from this place
+QuickFactIntent Tell me something interesting from around here
+WeatherIntent Is it going to rain soon
+WeatherIntent Is it going to rain today in {Location}
+RecommendationIntent Sure
+RecommendationIntent Okay
+RecommendationIntent Sounds good
+RecommendationIntent good idea
+RecommendationIntent How do I get there
+RecommendationIntent Can you direct me there
+NoThanksIntent no thanks
+NoThanksIntent not right now
+NoThanksIntent nevermind
+RecommendIntent recommend something
+RecommendIntent recommend somewhere
+RecommendIntent What else can I do around
+RecommendIntent surprise me
+RecommendIntent how about something else
+RecommendIntent something else
+RecommendIntent recommend me {Action}
+ThanksIntent thanks
+ThanksIntent cool
+AbilitiesIntent what can you do
+AbilitiesIntent what are you capable of
+BenefitsIntent What are your benefits
+BenefitsIntent Tell me your benefits
+HelpfulIntent very helpful
+TellSomeoneSomethingIntent Tell {Name} to {Action}
+SuggestIntent suggest me somewhere to have dinner
+SevenSeasIntent Seven seas sounds good How do I get there
