@@ -9,6 +9,7 @@ http://amzn.to/1LGWsLG
 
 from __future__ import print_function
 import logging
+import random
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
@@ -56,7 +57,7 @@ def get_welcome_response():
     card_title = "Welcome"
     speech_output = "Welcome to Amsterdam. " + \
                     "Discover the city from a new perspective. Ask me what I can do. "
-    speech_output = "Welcome to Amsterdam"
+    speech_output = "Welcome to Amsterdam. What can I do for you?"
     # If the user either does not reply to the welcome message or says something
     # that is not understood, they will be prompted again with this text.
     reprompt_text = "Can I help you with something? " + \
@@ -139,17 +140,18 @@ def get_location_slot(intent, session, session_attributes):
     # See if it's already in the session. If so, return that.
     if "LOCATION_KEY" in session.get('attributes', {}):
         location = session['attributes']['LOCATION_KEY']
-        print("Found location " + location + " in session")
+        print("Found location " + str(location) + " in session")
 
     # Get from slot.
     if location is None:
         print("Did not find location in session")
-        if 'Location' in intent['slots'] and 'value' in intent['slots']['Location']:
+        print(intent.get('slots', {}))
+        if 'Location' in intent.get('slots',{}) and 'value' in intent['slots']['Location']:
             print("Found location: " + intent['slots']['Location']['value'])
             location = intent['slots']['Location']['value']
 
     # Set in session.
-    print("Setting location " + location + " in session")
+    print("Setting location " + str(location) + " in session")
     session_attributes["LOCATION_KEY"] = location
 
     return location
@@ -160,20 +162,43 @@ def get_venue_type_slot(intent, session, session_attributes):
     # See if it's already in the session. If so, return that.
     if "VENUE_TYPE_KEY" in session.get('attributes', {}):
         venue_type = session['attributes']['VENUE_TYPE_KEY']
-        print("Found venue_type " + venue_type + " in session")
+        print("Found venue_type " + str(venue_type)  + " in session")
 
     # Get from slot.
     if venue_type is None:
         print("Did not find venue_type in session")
-        if 'VenueType' in intent['slots'] and 'value' in intent['slots']['VenueType']:
+        print(intent.get('slots', {}))
+        if 'VenueType' in intent.get('slots',{}) and 'value' in intent['slots']['VenueType']:
             print("Found venue_type: " + intent['slots']['VenueType']['value'])
             venue_type = intent['slots']['VenueType']['value']
 
     # Set in session.
-    print("Setting venue_type " + venue_type + " in session")
+    print("Setting venue_type " + str(venue_type) + " in session")
     session_attributes["VENUE_TYPE_KEY"] = venue_type
 
     return venue_type
+
+def get_action_slot(intent, session, session_attributes):
+    action = None
+
+    # See if it's already in the session. If so, return that.
+    if "ACTION_KEY" in session.get('attributes', {}):
+        action = session['attributes']['ACTION_KEY']
+        print("Found action " + str(action) + " in session")
+
+    # Get from slot.
+    if action is None:
+        print("Did not find action in session")
+        print(intent.get('slots', {}))
+        if 'Action' in intent.get('slots', {}) and 'value' in intent['slots']['Action']:
+            print("Found action: " + intent['slots']['Action']['value'])
+            action = intent['slots']['Action']['value']
+
+    # Set in session.
+    print("Setting action " + str(action) + " in session")
+    session_attributes["ACTION_KEY"] = action
+
+    return action
 
 
 def get_name_slot(intent, session, session_attributes):
@@ -215,6 +240,15 @@ def say_no_thanks(intent, session):
     reprompt_text = ""
     speech_output = "OK."
 
+    if session.get('attributes', {}).get('SUGGESTION_KEY', False) is True:
+        speech_output = "Well, the top restaurants near your location are Restaurant Seven Seas and Los Pilones. They are both around 10 minutes away"
+        should_end_session = False
+    if session.get('attributes', {}).get('ANNE_KEY', False) is True:
+        print(session.get('attributes', {}))
+        session_attributes["ANNE_KEY"] = True
+        speech_output = "On average, it will take you around 2 hours to get in. Would you like me to suggest you something else instead?"
+        should_end_session = False
+
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -255,6 +289,15 @@ def handleTransportationIntent(intent, session):
 
     speech_output = "Transportation result. " + \
                     "Do you want to know anything else?"
+
+    action = get_action_slot(intent, session, session.get('attributes', {}))
+    location = get_location_slot(intent, session, session.get('attributes', {}))
+
+    if session.get('attributes', {}).get('SUGGESTION_KEY', False):
+        speech_output = "You can take bus 22 which will be here in 6 minutes. It will take 9 minutes to get till stop Prince Hendrikkade where you can find it. Do you want anything else?"
+    if location is not None and 'house' in location:
+        speech_output = "You can take bus 658 and then walk 150 meters to the end of the street heading north. However, you need an entrance ticket. Do you already have one?"
+        session_attributes["ANNE_KEY"] = True
 
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
@@ -304,7 +347,14 @@ def handleQuickFactIntent(intent, session):
     should_end_session = False
     reprompt_text = ""
 
-    speech_output = "Quick fact intent result. " + \
+    quickFacts = [
+        ' there are over one thousand and growing startups here in Amsterdam ',
+        ' there are around 847 thousand bicycles in the city. ',
+        ' around 14 thousand bikes are fished from the canals every year. ',
+        ' there is a new local brewery two blocks aways that opened just last month. ',
+    ]
+    quickFact = quickFacts[int(random.randrange(0, len(quickFacts)-1))]
+    speech_output = "Did you know that %s " % quickFact + \
                     "Do you want to know anything else?"
 
     return build_response(session_attributes, build_speechlet_response(
@@ -330,7 +380,14 @@ def handleRecommendIntent(intent, session):
     should_end_session = False
     reprompt_text = ""
 
-    speech_output = "Recommend intent result. " + \
+    action = get_action_slot(intent, session, session.get('attributes', {}))
+    location = get_location_slot(intent, session, session.get('attributes', {}))
+    if session.get('attributes', {}).get('SUGGESTION_KEY', False) and location is None:
+        speech_output = 'Any type in particular?'
+    elif session.get('attributes', {}).get('SEVEN_SEAS_KEY', False):
+        speech_output = "Today there is the Jazz festival in the Nieuwe Markt. It is a 9 minute walk away from there. Can I help you with something else?"
+    else:
+        speech_output = "Recommend intent result. " + \
                     "Do you want to know anything else?"
 
     return build_response(session_attributes, build_speechlet_response(
@@ -357,12 +414,42 @@ def handleRecommendationIntent(intent, session):
     should_end_session = False
     reprompt_text = ""
 
-    speech_output = "Recommendation intent result. " + \
+    print(session.get('attributes', {}))
+    if session.get('attributes', {}).get('ANNE_KEY', False) is True:
+        session_attributes["ANNE_KEY"] = True
+        speech_output = "You can go to the open street market in kerkstraat. You would need to take bus 755 from here "
+        should_end_session = False
+    else:
+        speech_output = "Recommendation intent result. " + \
                     "Do you want to know anything else?"
 
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
+def handleSuggestIntent(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    reprompt_text = ""
+
+    speech_output = "Anything in particular?"
+    session_attributes["SUGGESTION_KEY"] = True
+
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
+
+
+def handleSevenSeasIntent(intent, session):
+    card_title = intent['name']
+    session_attributes = {}
+    should_end_session = False
+    reprompt_text = ""
+
+    speech_output = "You can take bus 22 which will be here in 6 minutes. It will take 9 minutes to get till stop Prince Hendrikkade where you can find it. Do you want anything else?"
+    session_attributes["SEVEN_SEAS_KEY"] = True
+
+    return build_response(session_attributes, build_speechlet_response(
+        card_title, speech_output, reprompt_text, should_end_session))
 
 def handleBenefitsIntent(intent, session):
     return say_helpfulness(intent, session)
@@ -430,6 +517,12 @@ def on_intent(intent_request, session):
     elif intent_name == "ThanksIntent":
         print("Got ThanksIntent")
         return say_thanks(intent, session)
+    elif intent_name == "SuggestIntent":
+        print("Got SuggestIntent")
+        return handleSuggestIntent(intent, session)
+    elif intent_name == "SevenSeasIntent":
+        print("Got SevenSeasIntent")
+        return handleSevenSeasIntent(intent, session)
     elif intent_name == "NoThanksIntent":
         print("Got NoThanksIntent")
         return say_no_thanks(intent, session)
