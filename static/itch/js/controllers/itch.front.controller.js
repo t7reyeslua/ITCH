@@ -83,11 +83,12 @@
                 };
 
                 if (message.data.message == "Welcome to Amsterdam. What can I do for you?" ||
-                    message.data.message == "OK.") {
+                    message.data.message == "OK." || message.data.message.lowercase == "no problem.") {
                     console.info('same string');
                     $scope.chat_array = [];
+                } else {
+                    $scope.chat_array.push(data_msg);
                 }
-                $scope.chat_array.push(data_msg);
 
                 if (message.data.hasOwnProperty('image')) {
                     $scope.map_image = message.data.image;
