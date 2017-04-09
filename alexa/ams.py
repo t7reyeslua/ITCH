@@ -10,14 +10,18 @@ http://amzn.to/1LGWsLG
 from __future__ import print_function
 import logging
 import random
+import requests
+import json
 
 logger = logging.getLogger()
 logger.setLevel(logging.DEBUG)
 
+itch_server = 'http://34.205.252.226:9091/api/post/'
 
 # --------------- Helpers that build all of the responses ----------------------
 
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
+    postToServer({'message': output})
     return {
         'outputSpeech': {
             'type': 'PlainText',
@@ -39,6 +43,7 @@ def build_speechlet_response(title, output, reprompt_text, should_end_session):
 
 
 def build_response(session_attributes, speechlet_response):
+
     return {
         'version': '1.0',
         'sessionAttributes': session_attributes,
@@ -47,6 +52,18 @@ def build_response(session_attributes, speechlet_response):
 
 
 # --------------- Functions that control the skill's behavior ------------------
+
+def postToServer(data):
+    message = {
+        "content": {
+            "handler": "content",
+            "command": "get_details",
+            "data": data
+        }
+    }
+    headers = {'Content-type': 'application/json', 'Accept': 'text/plain'}
+    r = requests.post(itch_server, data=json.dumps(message))
+    return
 
 def get_welcome_response():
     """ If we wanted to initialize the session to have some attributes we could
@@ -229,6 +246,7 @@ def say_thanks(intent, session):
     reprompt_text = ""
 
     speech_output = "No problem."
+
 
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
