@@ -21,7 +21,6 @@ itch_server = 'http://34.205.252.226:9091/api/post/'
 # --------------- Helpers that build all of the responses ----------------------
 
 def build_speechlet_response(title, output, reprompt_text, should_end_session):
-    postToServer({'message': output})
     return {
         'outputSpeech': {
             'type': 'PlainText',
@@ -82,6 +81,8 @@ def get_welcome_response():
                     "For example, finding your way or recommending somewhere to pass the time."
 
     should_end_session = False
+    msg = {'message': speech_output}
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -92,6 +93,10 @@ def handle_session_end_request():
                     "Have a nice day! "
     # Setting this to true ends the session and exits the skill.
     should_end_session = True
+    msg = {'message': speech_output}
+    if should_end_session:
+        msg['image'] = '/static/common/images/map_ams.png'
+    postToServer(msg)
     return build_response({}, build_speechlet_response(
         card_title, speech_output, None, should_end_session))
 
@@ -246,6 +251,10 @@ def say_thanks(intent, session):
     reprompt_text = ""
 
     speech_output = "No problem."
+    msg = {'message': speech_output}
+    if should_end_session:
+        msg['image'] = '/static/common/images//map_ams.png'
+    postToServer(msg)
 
 
     return build_response(session_attributes, build_speechlet_response(
@@ -264,9 +273,13 @@ def say_no_thanks(intent, session):
     if session.get('attributes', {}).get('ANNE_KEY', False) is True:
         print(session.get('attributes', {}))
         session_attributes["ANNE_KEY"] = True
-        speech_output = "On average, it will take you around 2 hours to get in. Would you like me to suggest you something else instead?"
+        speech_output = "On average, it will take you around 2 hours to get in and it closes in 1 hour. Would you like me to suggest you something else instead?"
         should_end_session = False
 
+    msg = {'message': speech_output}
+    if should_end_session:
+        msg['image'] = '/static/common/images/map_ams.png'
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -281,6 +294,8 @@ def say_abilities(intent, session):
                     " cool unknown places to visit," + \
                     " or even for a quick random fact about the city."
 
+    msg = {'message': speech_output}
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -295,6 +310,8 @@ def say_helpfulness(intent, session):
                     "I can promote an engaging spontaneous natural interaction and help locals and tourist explore " + \
                     " and discover the city in a new fascinating way."
 
+    msg = {'message': speech_output}
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -307,16 +324,22 @@ def handleTransportationIntent(intent, session):
 
     speech_output = "Transportation result. " + \
                     "Do you want to know anything else?"
-
+    image  = None
     action = get_action_slot(intent, session, session.get('attributes', {}))
     location = get_location_slot(intent, session, session.get('attributes', {}))
 
     if session.get('attributes', {}).get('SUGGESTION_KEY', False):
         speech_output = "You can take bus 22 which will be here in 6 minutes. It will take 9 minutes to get till stop Prince Hendrikkade where you can find it. Do you want anything else?"
+        image =  '/static/common/images//maps_kerkstraat.png'
     if location is not None and 'house' in location:
         speech_output = "You can take bus 658 and then walk 150 meters to the end of the street heading north. However, you need an entrance ticket. Do you already have one?"
         session_attributes["ANNE_KEY"] = True
+        image =  '/static/common/images//map_anne_frank_details.png'
 
+    msg = {'message': speech_output}
+    if image is not None:
+        msg['image'] = image
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -330,6 +353,8 @@ def handleWhereIntent(intent, session):
     speech_output = "Where intent result. " + \
                     "Do you want to know anything else?"
 
+    msg = {'message': speech_output}
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -343,6 +368,8 @@ def handleWhenIntent(intent, session):
     speech_output = "When intent result. " + \
                     "Do you want to know anything else?"
 
+    msg = {'message': speech_output}
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -356,6 +383,8 @@ def handleDistanceIntent(intent, session):
     speech_output = "Distance intent result. " + \
                     "Do you want to know anything else?"
 
+    msg = {'message': speech_output}
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -375,6 +404,8 @@ def handleQuickFactIntent(intent, session):
     speech_output = "Did you know that %s " % quickFact + \
                     "Do you want to know anything else?"
 
+    msg = {'message': speech_output}
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -388,6 +419,8 @@ def handleWeatherIntent(intent, session):
     speech_output = "Weather intent result. " + \
                     "Do you want to know anything else?"
 
+    msg = {'message': speech_output}
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -397,6 +430,7 @@ def handleRecommendIntent(intent, session):
     session_attributes = {}
     should_end_session = False
     reprompt_text = ""
+    image = None
 
     action = get_action_slot(intent, session, session.get('attributes', {}))
     location = get_location_slot(intent, session, session.get('attributes', {}))
@@ -404,10 +438,15 @@ def handleRecommendIntent(intent, session):
         speech_output = 'Any type in particular?'
     elif session.get('attributes', {}).get('SEVEN_SEAS_KEY', False):
         speech_output = "Today there is the Jazz festival in the Nieuwe Markt. It is a 9 minute walk away from there. Can I help you with something else?"
+        image =  '/static/common/images//map_anne_frank_details.png'
     else:
         speech_output = "Recommend intent result. " + \
                     "Do you want to know anything else?"
 
+    msg = {'message': speech_output}
+    if image is not None:
+        msg['image'] = image
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -422,6 +461,8 @@ def handleTellSomeoneSomethingIntent(intent, session):
 
     speech_output = "%s, %s" % (who, what)
 
+    msg = {'message': speech_output}
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -431,16 +472,22 @@ def handleRecommendationIntent(intent, session):
     session_attributes = {}
     should_end_session = False
     reprompt_text = ""
+    image = None
 
     print(session.get('attributes', {}))
     if session.get('attributes', {}).get('ANNE_KEY', False) is True:
         session_attributes["ANNE_KEY"] = True
         speech_output = "You can go to the open street market in kerkstraat. You would need to take bus 755 from here "
         should_end_session = False
+        image =  '/static/common/images//maps_kerkstraat.png'
     else:
         speech_output = "Recommendation intent result. " + \
                     "Do you want to know anything else?"
 
+    msg = {'message': speech_output}
+    if image is not None:
+        msg['image'] = image
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -453,6 +500,8 @@ def handleSuggestIntent(intent, session):
     speech_output = "Anything in particular?"
     session_attributes["SUGGESTION_KEY"] = True
 
+    msg = {'message': speech_output}
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
@@ -466,6 +515,9 @@ def handleSevenSeasIntent(intent, session):
     speech_output = "You can take bus 22 which will be here in 6 minutes. It will take 9 minutes to get till stop Prince Hendrikkade where you can find it. Do you want anything else?"
     session_attributes["SEVEN_SEAS_KEY"] = True
 
+    msg = {'message': speech_output,
+           'image': '/static/common/images//map_seven_seas.png'}
+    postToServer(msg)
     return build_response(session_attributes, build_speechlet_response(
         card_title, speech_output, reprompt_text, should_end_session))
 
