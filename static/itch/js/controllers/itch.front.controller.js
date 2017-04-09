@@ -81,6 +81,10 @@
                     'message': message.data.message,
                     'side': $scope.side
                 };
+                if (message.data.message === 'Welcome to Amsterdam. What can I do for you?' &&
+                    message.data.message === 'OK.') {
+                    $scope.chat_array = [];
+                }
                 $scope.chat_array.push(data_msg);
                 updateScroll();
                 if (message.data.hasOwnProperty('image')) {
@@ -96,7 +100,8 @@
             if ($scope.side === 'right'){
                 $scope.side = 'left';
             } else {
-                $scope.side = 'right';
+                // $scope.side = 'right';
+                $scope.side = 'left';
             }
 
 
